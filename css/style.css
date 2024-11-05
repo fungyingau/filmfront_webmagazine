@@ -1,0 +1,1188 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+
+
+
+/* variables */
+:root {
+    --white: #f7f7f7;
+    --black: #000000;
+    --gray: #6e6e6e;
+    --yellow: #ffd234;
+}
+
+/* Reset *********************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: "Open Sans", sans-serif;
+}
+
+html{
+    font-size: 100%;
+    font-size: 1rem;
+    scroll-behavior: smooth;
+    font: inherit;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    margin-block-end: 1em;
+}
+
+h1,
+h2 {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin-block-start: 0.5em;
+}
+
+h3 {
+    text-transform: capitalize;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* menu ************************************/
+header {
+    background-color: var(--black);
+    box-shadow: 1px 1px 5px 0px var(--gray);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-block: 0.25em;
+}
+
+.logo {
+    display: inline-block;
+    color: var(--white);
+    font-size: 0;
+    margin-left: 32px;
+    width: 100px;
+    height: 100px;
+    background-image: url("../images/filmfront-logo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Nav menu */
+.navheader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--black);
+    overflow: hidden;
+}
+
+.navheader {
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+}
+
+.headermenu,
+.footermenu {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+}
+
+.headermenu a,
+.footermenu a {
+    display: block;
+    padding: 30px;
+    color: var(--yellow);
+    font-weight: 800;
+}
+
+.footermenu a {
+    padding: 10px;
+}
+
+.headermenu a:hover,
+.footermenu a:hover {
+    background-color: var(--gray);
+}
+
+/* Menu Icon */
+.hamb {
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+}
+
+/* Style label tag */
+
+.hamb-line {
+    background: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+/* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after {
+    background: var(--white);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before {
+    top: 5px;
+}
+
+.hamb-line::after {
+    top: -5px;
+}
+
+.side-menu {
+    display: none;
+}
+
+/* Toggle menu icon */
+.side-menu:checked~nav {
+    max-height: 100%;
+}
+
+.side-menu:checked~.hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked~.hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.side-menu:checked~.hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+button {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 10px;
+    padding: 0 10px;
+    margin-block: 18px;
+    display: inline-block;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* main ******************************/
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Slick Carousel*/
+.carousel-item {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparante zwarte overlay */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 500px;
+    gap: 2em;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: var(--yellow);
+}
+
+.carousel-item h1 {
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+.carousel-item p {
+    font-size: 2rem;
+}
+
+.carousel-item button {
+    align-self: flex-end;
+    padding: 1.5em 4em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: var(--yellow);
+    color: var(--black);
+    font-weight: bold;
+    border-radius: 50px;
+    border: none !important;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /* Voeg overgang toe voor soepele animatie */
+}
+
+.carousel-item button:hover {
+    transform: translateY(-5px);
+    /* Verplaats de knop omhoog met 5 pixels wanneer erover wordt gehoverd */
+}
+
+/* cards section **********************************/
+
+#topvijf,
+#weekfilm,
+#column {
+    margin-inline: 1em;
+}
+
+hr {
+    border: 1px solid var(--yellow);
+    margin-block: 5em;
+    width: 100%;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detail {
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail button {
+    margin-block-start: 0;
+}
+
+.rating span img {
+    object-fit: contain;
+    width: 16px;
+    height: 16px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.top5detail p {
+    margin-bottom: 1em;
+}
+
+.top5detail button {
+    display: block;
+    margin-inline: auto;
+}
+
+/* TOP 5 Section */
+#top-5-movies {
+    margin: 2em 0 2em 0;
+}
+
+#top-5-movies h2 {
+    font-size: 3rem;
+    margin-bottom: 1em;
+    color: var(--white);
+}
+
+#top-5-movies h3 {
+    font-size: 1rem;
+    margin-bottom: 1em;
+    color: var(--white);
+}
+
+#movieMenu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4em;
+}
+
+.movieMenuLink img {
+    max-width: 200px;
+}
+
+.movieThumbWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.movieThumbWrapper:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.movieThumbInfo {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.movieThumbInfo h2 {
+    font-size: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: var(--white);
+}
+
+.movieMenuLink {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    color: var(--yellow);
+    font-size: 1rem;
+    margin-bottom: 1em;
+}
+
+.thumb-btn {
+    text-align: center;
+    display: block;
+    padding: 1em 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 50px;
+    background-color: var(--gray);
+    margin-right: 1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Voeg overgang toe voor soepele animatie */
+}
+
+.thumb-btn:hover {
+    transform: translateY(-5px);
+}
+
+.dynamicContent {
+    display: flex;
+    justify-content: space-between;
+    gap: 4em;
+    margin-bottom: 2em;
+}
+
+.dynamicCover img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+}
+
+.dynamicText {
+    color: var(--white);
+    position: relative;
+}
+
+.dynamicText p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+#trailerLink {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: var(--yellow);
+    color: var(--black);
+    font-weight: bold;
+    border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+/* review *********************************/
+
+#weekfilm {
+    background-color: var(--white);
+    color: var(--black);
+    margin-inline: 1em;
+    padding: 0.5em .8em;
+    margin-bottom: 0.5em;
+    border-radius: 20px;
+}
+
+#weekfilm section {
+    display: grid;
+    padding-bottom: 1em;
+}
+
+#weekfilm h2,
+#weekfilm h3 {
+    text-align: center;
+}
+
+#weekfilm div p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.weekimgs>img {
+    background-color: var(--gray);
+    object-fit: cover;
+}
+
+/* colum */
+#column img {
+    box-shadow: var(--gray) 0px 2px 4px 0px inset;
+}
+
+#column {
+    margin-bottom: 2em;
+}
+
+.topimgs,
+.bottomimgs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#column div p {
+    margin-bottom: 1em;
+}
+
+#column button {
+    display: block;
+    margin-inline: auto;
+    font-size: 1rem;
+}
+
+.oscars-btn {
+    display: inline-block;
+    padding: 1em 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: var(--yellow);
+    color: var(--black);
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+footer {
+    background-color: var(--yellow);
+    color: var(--black);
+    display: grid;
+    font-weight: 800;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "logo logo"
+        "navfooter navsocial"
+        "copyright copyright";
+    justify-items: center;
+    padding-block: 1em;
+}
+
+
+
+.logo {
+    grid-area: logo;
+}
+
+.navfooter {
+    grid-area: navfooter;
+}
+
+.navsocial {
+    grid-area: navsocial;
+}
+
+.copyright {
+    grid-area: copyright;
+    font-size: smaller;
+}
+
+.footermenu a {
+    color: var(--black);
+    font-weight: 800;
+}
+
+.navsocial {
+    display: grid;
+}
+
+.socialmenu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.socialmenu a {
+    color: var(--white);
+    font-family: "Font Awesome 5 Brands";
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-weight: 800;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--black);
+    border-radius: 50%;
+    padding: 0.6em;
+}
+
+.socialmenu li:nth-child(1) a::before {
+    content: "\f39e";
+    padding: 0.4em 0.2em;
+}
+
+.socialmenu li:nth-child(2) a::before {
+    content: "\e61b";
+}
+
+.socialmenu li:nth-child(3) a::before {
+    content: "\f431";
+    padding: 0.4em 0.1em;
+}
+
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding-block: 0.5em;
+    }
+
+    .navheader {
+        max-height: none;
+        top: 0;
+        position: static;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    .headermenu,
+    .footermenu {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .headermenu a:hover,
+    .footermenu a:hover {
+        background-color: transparent;
+        color: var(--gray);
+    }
+
+    .hamb {
+        display: none;
+    }
+
+    .carousel-box h2 {
+        font-size: 2rem;
+    }
+
+
+    .card {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    #weekfilm{
+        padding: 0.5em 1em;
+    }
+
+    #topvijf {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "titel titel"
+            "cards topdetail";
+        gap: 1em;
+    }
+
+    #topvijf>.title {
+        grid-area: titel;
+    }
+
+    .cards {
+        grid-area: cards;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .top5detail {
+        grid-area: topdetail;
+    }
+
+    .top5detail button {
+        margin-left: auto;
+        margin-right: 0;
+        width: 162px;
+        height: 26px;
+    }
+
+    .filmgegevens div {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .filmgegevens div span {
+        min-width: 100px;
+        text-transform: capitalize;
+    }
+
+    .filmgegevens div p {
+        margin-bottom: 0.25em;
+    }
+
+    .topimgs,
+    .bottomimgs {
+        flex-direction: row;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "navfooter logo navsocial"
+            "copyright copyright copyright";
+        align-items: center;
+    }
+
+    .socialmenu {
+        flex-direction: row;
+        gap: 1.5em;
+    }
+
+    .footermenu {
+        flex-direction: column;
+    }
+
+    .logo {
+        align-self: flex-start;
+        margin-top: -10px;
+    }
+
+    .navsocial {
+        align-self: flex-end;
+    }
+}
+
+@media (min-width: 1024px) {
+    header {
+        align-items: center;
+    }
+
+    .logo {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    .carousel-box h2 {
+        font-size: 3rem;
+    }
+
+
+    #topvijf {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "titel"
+            "cards"
+            "topdetail";
+    }
+
+    .cards {
+        grid-area: cards;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .card>.poster {
+        height: 350px;
+    }
+
+    .detail button {
+        margin: auto 0 0 0;
+    }
+
+    .rating {
+        margin: auto 0 0 0;
+    }
+
+    .top5detail {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 40px auto auto auto;
+        gap: 1em;
+        grid-template-areas:
+            "poster titel"
+            "poster text"
+            "poster gegevens"
+            "poster button";
+    }
+
+    .top5detail h2 {
+        grid-area: titel;
+        margin-block-start: 0;
+    }
+
+    .top5detail .poster {
+        grid-area: poster;
+    }
+
+    .text {
+        grid-area: text;
+    }
+
+    .filmgegevens {
+        grid-area: gegevens;
+    }
+
+    .top5detail button {
+        grid-area: button;
+    }
+
+    #weekfilm{
+        padding: 0.5em 2em;
+    }
+
+    .weekimgs {
+        display: flex;
+        gap: 1em;
+        order: 3;
+    }
+
+      #column>div {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 1em;
+    }
+
+    .topimgs,
+    .bottomimgs {
+        flex-direction: column;
+    }
+
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "logo navfooter navsocial"
+            "copyright copyright copyright";
+        align-items: center;
+    }
+
+    .logo {
+        justify-self: flex-start;
+    }
+
+    .navsocial {
+        justify-self: flex-end;
+        margin-right: 1.75em;
+    }
+
+    .socialmenu {
+        flex-direction: row;
+        gap: 1.5em;
+    }
+
+    .footermenu {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 1240px) {
+    .movieMenuLink img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        width: 90%;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        max-width: 1024px;
+    }
+
+    .carousel-box {
+        right: unset;
+        left: 50%;
+        gap: 1em;
+    }
+
+    .carousel-box h2 {
+        margin-bottom: 0;
+    }
+
+    .carousel-box p {
+        font-size: 1.4rem;
+    }
+
+    .carousel-item button {
+        align-self: flex-start;
+    }
+
+    .top-5-movies-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 3em;
+    }
+
+    #top-5-movies h3 {
+        font-size: 1rem;
+    }
+
+    #top-5-movies p {
+        font-size: 1rem;
+    }
+
+    .dynamicCover img {
+        margin-bottom: 2em;
+        width: 100%;
+        height: auto;
+    }
+
+    #movieMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .dynamicContent {
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+        margin-bottom: 5em;
+    }
+
+    .weekimgs {
+        margin: 0 auto 1em auto;
+    }
+
+    .weekimgs img {
+        width: 49%;
+    }
+
+    .thumb-btn {
+        font-size: 0.8rem;
+        margin-bottom: 3em;
+    }
+
+    .topimgs,
+    .bottomimgs {
+        justify-content: center;
+    }
+
+    .bottomimgs {
+        margin-bottom: 1em;
+    }
+
+    footer {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 0 3em;
+    }
+
+    .logo {
+        align-self: center;
+        margin-top: 0;
+    }
+
+    header {
+        align-items: center;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 500px;
+        max-width: 768px;
+    }
+
+    #top-5-movies {
+        margin-bottom: 3em;
+    }
+
+    #top-5-movies h2 {
+        margin-bottom: 32px;
+    }
+
+    #top-5-movies h3,
+    #top-5-movies h2 {
+        text-align: center;
+    }
+
+    .movieMenuLink img {
+        max-width: 50%;
+        margin-bottom: 2em;
+    }
+
+    .top-5-movies-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #movieMenu {
+        margin-bottom: 0;
+    }
+
+    .dynamicCover img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+
+    .dynamicContent {
+        gap: 0;
+    }
+
+    .movieThumbWrapper {
+        flex-direction: column;
+        gap: 0em;
+        margin-right: 0;
+    }
+
+    .movieThumbInfo {
+        align-self: center;
+    }
+
+    .movieThumbInfo h2 {
+        font-size: 1.6rem;
+    }
+
+    .movieMenuLink img {
+        margin-bottom: 1em;
+    }
+
+    .thumb-btn {
+        margin-top: 0;
+        display: block;
+        text-align: center;
+        width: 50%;
+        transform: translate(50%);
+    }
+
+    .thumb-btn:hover {
+        transform: translate(50%);
+    }
+
+    #trailerLink {
+        text-align: center;
+        margin-top: 4em;
+        padding: 1.5em 2em;
+        position: absolute;
+        bottom: -100px;
+    }
+
+    .weekimgs {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .weekimgs img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 90%;
+        width: 90%;
+        padding: 0 2em;
+    }
+
+    .hamb {
+        padding: 55px 20px;
+    }
+
+    .logo {
+        background-position: unset;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 300px;
+        max-width: 480px;
+    }
+
+    .carousel-box {
+        align-items: center;
+        width: 70%;
+    }
+
+    .carousel-box h2 {
+        font-size: 2rem;
+        align-self: flex-start;
+    }
+
+    #top-5-movies h2 {
+        text-align: center;
+    }
+
+    .carousel-box p {
+        font-size: 1.6rem;
+    }
+
+    .top-5-movies-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    #top-5-movies h2 {
+        font-size: 2rem;
+    }
+
+    .movieThumbWrapper {
+        gap: 0;
+        margin-right: 0;
+    }
+
+    .thumb-btn {
+        font-size: 0.6rem;
+    }
+
+    #trailerLink {
+        width: 100%;
+    }
+
+    h1#movieDutch {
+        font-size: 2rem;
+    }
+
+    p#movieOmschrijving {
+        font-size: 1rem;
+    }
+
+    .dynamicText p {
+        font-size: 1rem;
+    }
+
+    .topimgs,
+    .bottomimgs {
+        align-items: center;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 1em;
+    }
+
+    .carousel-box h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-box p {
+        font-size: 1rem;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 300px;
+        max-width: 320px;
+    }
+
+    .movieThumbWrapper {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .carousel-item button {
+        padding: 1.5em 2em;
+    }
+
+    #movieMenu {
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1375px) {
+    #trailerLink {
+        bottom: -10%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #trailerLink {
+        bottom: -8%;
+    }
+}
